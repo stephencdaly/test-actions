@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: Run unit tests
     runs-on: ubuntu-18.04
 
     steps:
