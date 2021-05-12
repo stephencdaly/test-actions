@@ -8,4 +8,9 @@ class FooTest {
     void shouldReturn1() {
         assertThat(Foo.getNumber(), is(1));
     }
+
+    @Test
+    void shouldBeTrue() {
+        assertThat(true, is(true));
+    }
 }
