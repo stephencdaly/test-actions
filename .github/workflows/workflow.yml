@@ -25,4 +25,4 @@ jobs:
           consumer: selfservice
           consumer-tag: c494049e499de04a12b0d4d0b84c5d961b6ec5e2
       - name: Output provider list
-        run: echo "Provider list: ${{ steps.get-providers.outputs.providers-needing-validation }}"
+        run: echo "Provider list ${{ steps.get-providers.outputs.providers-needing-validation }}"
