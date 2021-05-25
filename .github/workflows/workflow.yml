@@ -40,7 +40,7 @@ jobs:
           distribution: 'adopt'
       - name: Run pact provider tests
         run: |
-          if ![[ ${{ steps.get-providers.outputs.providers-needing-validation }} == *"ledger"* ]]; then
+          if [[ ${{ steps.get-providers.outputs.providers-needing-validation }} != *"ledger"* ]]; then
             echo "All pacts already verified"
             exit 0
           fi
