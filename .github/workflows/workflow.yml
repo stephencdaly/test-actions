@@ -38,6 +38,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-ledger-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-ledger-m2
       - name: Run pact provider tests
         run: |
           if [[ "${{ steps.get-providers.outputs.providers-needing-validation }}" != *"ledger"* ]]; then
@@ -47,6 +53,8 @@ jobs:
 
           provider_version="$(git rev-parse HEAD)"
 
+          echo "$provider_version"
+
           cd ledger
 
           mvn test \
@@ -55,6 +63,6 @@ jobs:
             -DPACT_CONSUMER_TAG="de7889a74feb8a595da7695de82e00b31ec0b564" \
             -Dpact.provider.version="$provider_version" \
             -Dpact.verifier.publishResults=false \
-            -DPACT_BROKER_HOST=${{ secrets.PactBrokerUrl }} \
-            -DPACT_BROKER_USERNAME=${{ secrets.PactBrokerUsername }} \
-            -DPACT_BROKER_PASSWORD=${{ secrets.PactBrokerPassword }}
+            -DPACT_BROKER_HOST="pay-pact-broker.cloudapps.digital" \
+            -DPACT_BROKER_USERNAME="${{ secrets.PactBrokerUsername }}" \
+            -DPACT_BROKER_PASSWORD="${{ secrets.PactBrokerPassword }}"
