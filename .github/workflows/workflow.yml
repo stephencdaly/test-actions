@@ -51,3 +51,4 @@ jobs:
           consumer: selfservice
           consumer-tag: de7889a74feb8a595da7695de82e00b31ec0b564
           provider: ledger
+          providers-needing-validation: ${{ steps.get-providers.outputs.providers-needing-validation }}
