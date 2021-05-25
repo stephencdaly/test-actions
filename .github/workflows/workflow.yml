@@ -40,7 +40,7 @@ jobs:
           distribution: 'adopt'
       - name: Run pact provider tests
         run: |
-          if [[ ${{ steps.get-providers.outputs.providers-needing-validation }} != *"ledger"* ]]; then
+          if [[ "${{ steps.get-providers.outputs.providers-needing-validation }}" != *"ledger"* ]]; then
             echo "All pacts already verified"
             exit 0
           fi
@@ -52,9 +52,9 @@ jobs:
           mvn test \
             -DrunContractTests \
             -DCONSUMER="selfservice" \
-            -DPACT_CONSUMER_TAG="de7889a74feb8a595da7695de82e00b31ec0b564 \
+            -DPACT_CONSUMER_TAG="de7889a74feb8a595da7695de82e00b31ec0b564" \
             -Dpact.provider.version="$provider_version" \
             -Dpact.verifier.publishResults=false \
-            -DPACT_BROKER_HOST=${{ secrets.PactBrokerUrl }} \
-            -DPACT_BROKER_USERNAME=${{ secrets.PactBrokerUsername }} \
-            -DPACT_BROKER_PASSWORD=${{ secrets.PactBrokerPassword }}
+            -DPACT_BROKER_HOST="${{ secrets.PactBrokerUrl }}" \
+            -DPACT_BROKER_USERNAME="${{ secrets.PactBrokerUsername }}" \
+            -DPACT_BROKER_PASSWORD="${{ secrets.PactBrokerPassword }}"
