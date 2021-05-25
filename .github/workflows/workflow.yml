@@ -61,7 +61,7 @@ jobs:
             -DCONSUMER="selfservice" \
             -DPACT_CONSUMER_TAG="de7889a74feb8a595da7695de82e00b31ec0b564" \
             -Dpact.provider.version="$provider_version" \
-            -Dpact.verifier.publishResults=false \
+            -Dpact.verifier.publishResults=true \
             -DPACT_BROKER_HOST="pay-pact-broker.cloudapps.digital" \
             -DPACT_BROKER_USERNAME="${{ secrets.PactBrokerUsername }}" \
             -DPACT_BROKER_PASSWORD="${{ secrets.PactBrokerPassword }}"
