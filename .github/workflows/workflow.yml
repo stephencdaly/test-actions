@@ -51,11 +51,10 @@ jobs:
             exit 0
           fi
 
-          provider_version="$(git rev-parse HEAD)"
-
-          echo "$provider_version"
-
           cd ledger
+
+          provider_version="$(git rev-parse HEAD)"
+          echo "Provider version: $provider_version"
 
           mvn test \
             -DrunContractTests \
