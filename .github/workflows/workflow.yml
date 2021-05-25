@@ -17,12 +17,12 @@ jobs:
     steps:
       - name: Get providers needing verfication
         id: get-providers
-        uses: stephencdaly/get-pact-providers-needing-validation@main
+        uses: ./
         with:
           pact-broker-url: ${{ secrets.PactBrokerUrl }}
           pact-broker-username: ${{ secrets.PactBrokerUsername }}
           pact-broker-password: ${{ secrets.PactBrokerPassword }}
           consumer: selfservice
-          consumer-tag: c494049e499de04a12b0d4d0b84c5d961b6ec5e2
+          consumer-tag: de7889a74feb8a595da7695de82e00b31ec0b564
       - name: Output provider list
         run: echo "Provider list ${{ steps.get-providers.outputs.providers-needing-validation }}"
