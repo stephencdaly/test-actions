@@ -17,6 +17,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        ## This will be done after running unit/integration tests. For this example, upload the checked
+        ## In pact files. In our case the consumer is selfservice.
+      - name: Publish pacts
+        uses: stephencdaly/pay-actions/publish-pacts@main
+        with:
+          pact-broker-username: ${{ secrets.PactBrokerUsername }}
+          pact-broker-password: ${{ secrets.PactBrokerPassword }}
+          consumer: selfservice
+          consumer-sha: de7889a74feb8a595da7695de82e00b31ec0b564
+          pr-id: test-gha-1
       - name: Get providers needing verfication
         id: get-providers
         uses: stephencdaly/pay-actions/get-pact-providers-needing-validation@main
@@ -32,12 +42,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-ledger-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-ledger-m2
       - name: Checkout ledger master
         uses: actions/checkout@v2
         with:

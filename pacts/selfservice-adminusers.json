@@ -1,0 +1,3631 @@
+{
+  "consumer": {
+    "name": "selfservice"
+  },
+  "provider": {
+    "name": "adminusers"
+  },
+  "interactions": [
+    {
+      "description": "a correct password for a user",
+      "providerState": "a user exists with username existing-user and password password",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/users/authenticate",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "username": "existing-user",
+          "password": "password"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "external_id": "7d19aff33f8948deb97ed16b2912dcd3",
+          "username": "existing-user",
+          "email": "some-user@example.com",
+          "otp_key": "krb6fcianbdjkt01ecvi08jcln",
+          "telephone_number": "91279799",
+          "service_roles": [
+            {
+              "service": {
+                "id": 857,
+                "external_id": "cp5wa",
+                "name": "System Generated",
+                "gateway_account_ids": [
+                  "666"
+                ],
+                "service_name": {
+                  "en": "System Generated"
+                },
+                "redirect_to_service_immediately_on_terminal_state": false,
+                "collect_billing_address": false,
+                "current_go_live_stage": "NOT_STARTED",
+                "experimental_features_enabled": true,
+                "current_psp_test_account_stage": "NOT_STARTED",
+                "agent_initiated_moto_enabled": false
+              },
+              "role": {
+                "name": "admin",
+                "description": "Administrator",
+                "permissions": [
+                  {
+                    "name": "users-service:read",
+                    "description": "Viewusersinservice"
+                  },
+                  {
+                    "name": "users-service:create",
+                    "description": "Createuserinthisservice"
+                  },
+                  {
+                    "name": "tokens-active:read",
+                    "description": "Viewactivekeys"
+                  },
+                  {
+                    "name": "tokens-revoked:read",
+                    "description": "Viewrevokedkeys"
+                  },
+                  {
+                    "name": "tokens:create",
+                    "description": "Generatekey"
+                  },
+                  {
+                    "name": "tokens:update",
+                    "description": "Generatekey"
+                  },
+                  {
+                    "name": "tokens:delete",
+                    "description": "Revokekey"
+                  },
+                  {
+                    "name": "transactions:read",
+                    "description": "Viewtransactionslist"
+                  },
+                  {
+                    "name": "transactions-by-date:read",
+                    "description": "Searchtransactionsbydate"
+                  },
+                  {
+                    "name": "transactions-by-fields:read",
+                    "description": "Searchtransactionsbypaymentfields"
+                  },
+                  {
+                    "name": "transactions-download:read",
+                    "description": "Downloadtransactions"
+                  },
+                  {
+                    "name": "transactions-details:read",
+                    "description": "Viewtransactiondetails"
+                  },
+                  {
+                    "name": "transactions-events:read",
+                    "description": "Viewtransactionevents"
+                  },
+                  {
+                    "name": "refunds:create",
+                    "description": "Issuerefund"
+                  },
+                  {
+                    "name": "transactions-amount:read",
+                    "description": "Viewtransactionamounts"
+                  },
+                  {
+                    "name": "transactions-description:read",
+                    "description": "Viewtransactiondescription"
+                  },
+                  {
+                    "name": "transactions-email:read",
+                    "description": "Viewtransactionemail"
+                  },
+                  {
+                    "name": "transactions-card-type:read",
+                    "description": "Viewtransactioncardtype"
+                  },
+                  {
+                    "name": "gateway-credentials:read",
+                    "description": "Viewgatewayaccountcredentials"
+                  },
+                  {
+                    "name": "gateway-credentials:update",
+                    "description": "Editgatewayaccountcredentials"
+                  },
+                  {
+                    "name": "service-name:read",
+                    "description": "Viewservicename"
+                  },
+                  {
+                    "name": "service-name:update",
+                    "description": "Editservicename"
+                  },
+                  {
+                    "name": "payment-types:read",
+                    "description": "Viewpaymenttypes"
+                  },
+                  {
+                    "name": "payment-types:update",
+                    "description": "Editpaymenttypes"
+                  },
+                  {
+                    "name": "email-notification-template:read",
+                    "description": "Viewemailnotificationstemplate"
+                  },
+                  {
+                    "name": "email-notification-paragraph:update",
+                    "description": "Editemailnotificationsparagraph"
+                  },
+                  {
+                    "name": "email-notification-toggle:update",
+                    "description": "Turnemailnotificationson/off"
+                  },
+                  {
+                    "name": "tokens:read",
+                    "description": "View keys"
+                  },
+                  {
+                    "name": "toggle-3ds:read",
+                    "description": "View 3D Secure setting"
+                  },
+                  {
+                    "name": "toggle-3ds:update",
+                    "description": "Edit 3D Secure setting"
+                  },
+                  {
+                    "name": "users-service:delete",
+                    "description": "Remove user from a service"
+                  },
+                  {
+                    "name": "merchant-details:read",
+                    "description": "View Merchant Details setting"
+                  },
+                  {
+                    "name": "merchant-details:update",
+                    "description": "Edit Merchant Details setting"
+                  },
+                  {
+                    "name": "toggle-billing-address:read",
+                    "description": "View Billing Address setting"
+                  },
+                  {
+                    "name": "toggle-billing-address:update",
+                    "description": "Edit Billing Address setting"
+                  },
+                  {
+                    "name": "go-live-stage:update",
+                    "description": "Update Go Live stage"
+                  },
+                  {
+                    "name": "go-live-stage:read",
+                    "description": "View Go Live stage"
+                  },
+                  {
+                    "name": "stripe-account-details:update",
+                    "description": "Update any Stripe account onboarding details"
+                  },
+                  {
+                    "name": "stripe-bank-details:update",
+                    "description": "Update Stripe bank details"
+                  },
+                  {
+                    "name": "stripe-bank-details:read",
+                    "description": "View Stripe bank details"
+                  },
+                  {
+                    "name": "stripe-responsible-person:update",
+                    "description": "Update Stripe responsible person"
+                  },
+                  {
+                    "name": "stripe-responsible-person:read",
+                    "description": "View Stripe responsible person"
+                  },
+                  {
+                    "name": "stripe-vat-number-company-number:update",
+                    "description": "Update Stripe VAT number company number"
+                  },
+                  {
+                    "name": "stripe-vat-number-company-number:read",
+                    "description": "View Stripe VAT number company number"
+                  },
+                  {
+                    "name": "connected-gocardless-account:read",
+                    "description": "View connected go cardless account"
+                  },
+                  {
+                    "name": "connected-gocardless-account:update",
+                    "description": "Update connected go cardless account"
+                  },
+                  {
+                    "name": "payouts:read",
+                    "description": "View payouts"
+                  },
+                  {
+                    "name": "moto-mask-input:update",
+                    "description": "Update moto mask for card number and security code"
+                  },
+                  {
+                    "name": "moto-mask-input:read",
+                    "description": "View moto mask for card number and security code"
+                  },
+                  {
+                    "name": "psp-test-account-stage:update",
+                    "description": "Update PSP Test Account stage"
+                  }
+                ]
+              }
+            }
+          ],
+          "second_factor": "SMS",
+          "provisional_otp_key": "a-provisional-key",
+          "provisional_otp_key_created_at": null,
+          "disabled": false,
+          "login_counter": 0,
+          "session_version": 0,
+          "_links": [
+            {
+              "rel": "self",
+              "method": "GET",
+              "href": "http://localhost:8080/v1/api/users/09283568e105442da3928d1fa99fb0eb"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.username": {
+            "match": "type"
+          },
+          "$.body.email": {
+            "match": "type"
+          },
+          "$.body.otp_key": {
+            "match": "type"
+          },
+          "$.body.telephone_number": {
+            "match": "type"
+          },
+          "$.body.service_roles": {
+            "min": 1
+          },
+          "$.body.service_roles[*].*": {
+            "match": "type"
+          },
+          "$.body.service_roles[*]": {
+            "match": "type"
+          },
+          "$.body.second_factor": {
+            "match": "type"
+          },
+          "$.body.provisional_otp_key": {
+            "match": "type"
+          },
+          "$.body.disabled": {
+            "match": "type"
+          },
+          "$.body.login_counter": {
+            "match": "type"
+          },
+          "$.body.session_version": {
+            "match": "type"
+          },
+          "$.body._links": {
+            "min": 1
+          },
+          "$.body._links[*].*": {
+            "match": "type"
+          },
+          "$.body._links[*]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "an incorrect password for a user",
+      "providerState": "a user exists with username existing-user and password password",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/users/authenticate",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "username": "existing-user",
+          "password": "some-password"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "errors": [
+            "invalid username and/or password"
+          ]
+        },
+        "matchingRules": {
+          "$.body.errors[0]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid forgotten password request",
+      "providerState": "a user exists with username existing-user",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/forgotten-passwords",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "username": "existing-user"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "an invalid forgotten password request",
+      "providerState": "default",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/forgotten-passwords",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "username": ""
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "errors": [
+            "Field [username] is required"
+          ]
+        },
+        "matchingRules": {
+          "$.body.errors[0]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a forgotten password request for non existent user",
+      "providerState": "a user does not exist",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/forgotten-passwords",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "username": "nonexisting"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "forgotten password get request",
+      "providerState": "a forgotten password entry exist",
+      "request": {
+        "method": "GET",
+        "path": "/v1/api/forgotten-passwords/existing-code",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "user_external_id": "userExternalId",
+          "code": "existing-code",
+          "date": "2010-12-31T22:59:59.132Z",
+          "_links": [
+            {
+              "href": "http://localhost:8080/v1/api/forgotten-passwords/h41ne",
+              "rel": "self",
+              "method": "GET"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.user_external_id": {
+            "match": "type"
+          },
+          "$.body.code": {
+            "match": "type"
+          },
+          "$.body.date": {
+            "match": "type"
+          },
+          "$.body._links[0].href": {
+            "match": "type"
+          },
+          "$.body._links[0].rel": {
+            "match": "type"
+          },
+          "$.body._links[0].method": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a forgotten password request for non existent code",
+      "providerState": "a valid (non-expired) forgotten password entry does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/v1/api/forgotten-passwords/non-existent-code",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid request to add a gateway account to a service",
+      "providerState": "a service exists with external id cp5wa with gateway account with id 111",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "op": "add",
+          "path": "gateway_account_ids",
+          "value": [
+            "42"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "cp5wa",
+          "name": "System Generated",
+          "gateway_account_ids": [
+            "42",
+            "111"
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[1]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a invalid request to add a gateway account to a service with a conflicting gateway account id",
+      "providerState": "a service exists with external id cp5wa with gateway account with id 111",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "op": "add",
+          "path": "gateway_account_ids",
+          "value": [
+            "111"
+          ]
+        }
+      },
+      "response": {
+        "status": 409,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "errors": [
+            "One or more of the following gateway account ids has already assigned to another service: [111]"
+          ]
+        }
+      }
+    },
+    {
+      "description": "a invalid request to add a gateway account to a service with a non-extant service external id",
+      "providerState": "default",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/non-existent-id",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "op": "add",
+          "path": "gateway_account_ids",
+          "value": [
+            "42"
+          ]
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid create service request with empty object",
+      "providerState": "default",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/services",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "externalId",
+          "name": "Service name",
+          "gateway_account_ids": [
+
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid create service request with gateway account ids",
+      "providerState": "default",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/services",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "gateway_account_ids": [
+            "1",
+            "5"
+          ]
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "externalId",
+          "name": "Service name",
+          "gateway_account_ids": [
+            "1",
+            "5"
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[1]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid create service request with service name",
+      "providerState": "default",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/services",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "service_name": {
+            "en": "Service name"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "externalId",
+          "name": "Service name",
+          "gateway_account_ids": [
+
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid get service users request",
+      "providerState": "a user exists with role for service with id cp5wa",
+      "request": {
+        "method": "GET",
+        "path": "/v1/api/services/cp5wa/users",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "external_id": "7d19aff33f8948deb97ed16b2912dcd3",
+            "username": "some-user@example.com",
+            "email": "some-user@example.com",
+            "otp_key": "krb6fcianbdjkt01ecvi08jcln",
+            "telephone_number": "9127979",
+            "service_roles": [
+              {
+                "service": {
+                  "id": 857,
+                  "external_id": "cp5wa",
+                  "name": "System Generated",
+                  "gateway_account_ids": [
+                    "666"
+                  ],
+                  "service_name": {
+                    "en": "System Generated"
+                  },
+                  "redirect_to_service_immediately_on_terminal_state": false,
+                  "collect_billing_address": false,
+                  "current_go_live_stage": "NOT_STARTED",
+                  "experimental_features_enabled": true,
+                  "current_psp_test_account_stage": "NOT_STARTED",
+                  "agent_initiated_moto_enabled": false
+                },
+                "role": {
+                  "name": "admin",
+                  "description": "Administrator",
+                  "permissions": [
+                    {
+                      "name": "users-service:read",
+                      "description": "Viewusersinservice"
+                    },
+                    {
+                      "name": "users-service:create",
+                      "description": "Createuserinthisservice"
+                    },
+                    {
+                      "name": "tokens-active:read",
+                      "description": "Viewactivekeys"
+                    },
+                    {
+                      "name": "tokens-revoked:read",
+                      "description": "Viewrevokedkeys"
+                    },
+                    {
+                      "name": "tokens:create",
+                      "description": "Generatekey"
+                    },
+                    {
+                      "name": "tokens:update",
+                      "description": "Generatekey"
+                    },
+                    {
+                      "name": "tokens:delete",
+                      "description": "Revokekey"
+                    },
+                    {
+                      "name": "transactions:read",
+                      "description": "Viewtransactionslist"
+                    },
+                    {
+                      "name": "transactions-by-date:read",
+                      "description": "Searchtransactionsbydate"
+                    },
+                    {
+                      "name": "transactions-by-fields:read",
+                      "description": "Searchtransactionsbypaymentfields"
+                    },
+                    {
+                      "name": "transactions-download:read",
+                      "description": "Downloadtransactions"
+                    },
+                    {
+                      "name": "transactions-details:read",
+                      "description": "Viewtransactiondetails"
+                    },
+                    {
+                      "name": "transactions-events:read",
+                      "description": "Viewtransactionevents"
+                    },
+                    {
+                      "name": "refunds:create",
+                      "description": "Issuerefund"
+                    },
+                    {
+                      "name": "transactions-amount:read",
+                      "description": "Viewtransactionamounts"
+                    },
+                    {
+                      "name": "transactions-description:read",
+                      "description": "Viewtransactiondescription"
+                    },
+                    {
+                      "name": "transactions-email:read",
+                      "description": "Viewtransactionemail"
+                    },
+                    {
+                      "name": "transactions-card-type:read",
+                      "description": "Viewtransactioncardtype"
+                    },
+                    {
+                      "name": "gateway-credentials:read",
+                      "description": "Viewgatewayaccountcredentials"
+                    },
+                    {
+                      "name": "gateway-credentials:update",
+                      "description": "Editgatewayaccountcredentials"
+                    },
+                    {
+                      "name": "service-name:read",
+                      "description": "Viewservicename"
+                    },
+                    {
+                      "name": "service-name:update",
+                      "description": "Editservicename"
+                    },
+                    {
+                      "name": "payment-types:read",
+                      "description": "Viewpaymenttypes"
+                    },
+                    {
+                      "name": "payment-types:update",
+                      "description": "Editpaymenttypes"
+                    },
+                    {
+                      "name": "email-notification-template:read",
+                      "description": "Viewemailnotificationstemplate"
+                    },
+                    {
+                      "name": "email-notification-paragraph:update",
+                      "description": "Editemailnotificationsparagraph"
+                    },
+                    {
+                      "name": "email-notification-toggle:update",
+                      "description": "Turnemailnotificationson/off"
+                    },
+                    {
+                      "name": "tokens:read",
+                      "description": "View keys"
+                    },
+                    {
+                      "name": "toggle-3ds:read",
+                      "description": "View 3D Secure setting"
+                    },
+                    {
+                      "name": "toggle-3ds:update",
+                      "description": "Edit 3D Secure setting"
+                    },
+                    {
+                      "name": "users-service:delete",
+                      "description": "Remove user from a service"
+                    },
+                    {
+                      "name": "merchant-details:read",
+                      "description": "View Merchant Details setting"
+                    },
+                    {
+                      "name": "merchant-details:update",
+                      "description": "Edit Merchant Details setting"
+                    },
+                    {
+                      "name": "toggle-billing-address:read",
+                      "description": "View Billing Address setting"
+                    },
+                    {
+                      "name": "toggle-billing-address:update",
+                      "description": "Edit Billing Address setting"
+                    },
+                    {
+                      "name": "go-live-stage:update",
+                      "description": "Update Go Live stage"
+                    },
+                    {
+                      "name": "go-live-stage:read",
+                      "description": "View Go Live stage"
+                    },
+                    {
+                      "name": "stripe-account-details:update",
+                      "description": "Update any Stripe account onboarding details"
+                    },
+                    {
+                      "name": "stripe-bank-details:update",
+                      "description": "Update Stripe bank details"
+                    },
+                    {
+                      "name": "stripe-bank-details:read",
+                      "description": "View Stripe bank details"
+                    },
+                    {
+                      "name": "stripe-responsible-person:update",
+                      "description": "Update Stripe responsible person"
+                    },
+                    {
+                      "name": "stripe-responsible-person:read",
+                      "description": "View Stripe responsible person"
+                    },
+                    {
+                      "name": "stripe-vat-number-company-number:update",
+                      "description": "Update Stripe VAT number company number"
+                    },
+                    {
+                      "name": "stripe-vat-number-company-number:read",
+                      "description": "View Stripe VAT number company number"
+                    },
+                    {
+                      "name": "connected-gocardless-account:read",
+                      "description": "View connected go cardless account"
+                    },
+                    {
+                      "name": "connected-gocardless-account:update",
+                      "description": "Update connected go cardless account"
+                    },
+                    {
+                      "name": "payouts:read",
+                      "description": "View payouts"
+                    },
+                    {
+                      "name": "moto-mask-input:update",
+                      "description": "Update moto mask for card number and security code"
+                    },
+                    {
+                      "name": "moto-mask-input:read",
+                      "description": "View moto mask for card number and security code"
+                    },
+                    {
+                      "name": "psp-test-account-stage:update",
+                      "description": "Update PSP Test Account stage"
+                    }
+                  ]
+                }
+              }
+            ],
+            "second_factor": "SMS",
+            "provisional_otp_key": "a-provisional-key",
+            "provisional_otp_key_created_at": null,
+            "disabled": false,
+            "login_counter": 0,
+            "session_version": 0,
+            "_links": [
+              {
+                "rel": "self",
+                "method": "GET",
+                "href": "http://localhost:8080/v1/api/users/09283568e105442da3928d1fa99fb0eb"
+              }
+            ]
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          },
+          "$.body[*].external_id": {
+            "match": "type"
+          },
+          "$.body[*].username": {
+            "match": "type"
+          },
+          "$.body[*].email": {
+            "match": "type"
+          },
+          "$.body[*].otp_key": {
+            "match": "type"
+          },
+          "$.body[*].telephone_number": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.id": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.external_id": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.service_name.en": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].service.agent_initiated_moto_enabled": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[0].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[0].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[1].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[1].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[2].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[2].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[3].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[3].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[4].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[4].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[5].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[5].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[6].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[6].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[7].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[7].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[8].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[8].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[9].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[9].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[10].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[10].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[11].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[11].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[12].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[12].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[13].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[13].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[14].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[14].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[15].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[15].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[16].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[16].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[17].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[17].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[18].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[18].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[19].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[19].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[20].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[20].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[21].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[21].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[22].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[22].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[23].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[23].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[24].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[24].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[25].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[25].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[26].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[26].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[27].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[27].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[28].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[28].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[29].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[29].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[30].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[30].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[31].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[31].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[32].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[32].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[33].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[33].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[34].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[34].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[35].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[35].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[36].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[36].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[37].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[37].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[38].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[38].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[39].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[39].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[40].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[40].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[41].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[41].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[42].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[42].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[43].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[43].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[44].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[44].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[45].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[45].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[46].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[46].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[47].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[47].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[48].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[48].description": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[49].name": {
+            "match": "type"
+          },
+          "$.body[*].service_roles[0].role.permissions[49].description": {
+            "match": "type"
+          },
+          "$.body[*].second_factor": {
+            "match": "type"
+          },
+          "$.body[*].provisional_otp_key": {
+            "match": "type"
+          },
+          "$.body[*].disabled": {
+            "match": "type"
+          },
+          "$.body[*].login_counter": {
+            "match": "type"
+          },
+          "$.body[*].session_version": {
+            "match": "type"
+          },
+          "$.body[*]._links[0].rel": {
+            "match": "type"
+          },
+          "$.body[*]._links[0].method": {
+            "match": "type"
+          },
+          "$.body[*]._links[0].href": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid get service users request with non-existing service id",
+      "providerState": "default",
+      "request": {
+        "method": "GET",
+        "path": "/v1/api/services/500/users",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid post govuk pay agreement - email address request",
+      "providerState": "a user exists with external id 7d19aff33f8948deb97ed16b2912dcd3 with admin role for service with id cp5wa",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/services/cp5wa/govuk-pay-agreement",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "user_external_id": "7d19aff33f8948deb97ed16b2912dcd3"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid post stripe agreement - ip address request",
+      "providerState": "a service exists with external id rtglNotStarted and go live stage equals to NOT_STARTED",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/services/rtglNotStarted/stripe-agreement",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "ip_address": "93.184.216.34"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid patch collect billing address toggle (disabled) request",
+      "providerState": "a service exists with external id cp5wa",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "op": "replace",
+          "path": "collect_billing_address",
+          "value": false
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "cp5wa",
+          "name": "System Generated",
+          "gateway_account_ids": [
+            "666"
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid patch current psp test account stage",
+      "providerState": "a service exists with external id cp5wa",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "op": "replace",
+          "path": "current_psp_test_account_stage",
+          "value": "REQUEST_SUBMITTED"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "cp5wa",
+          "name": "System Generated",
+          "gateway_account_ids": [
+            "666"
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "REQUEST_SUBMITTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid patch current go live stage request",
+      "providerState": "a service exists with external id cp5wa",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "op": "replace",
+          "path": "current_go_live_stage",
+          "value": "ENTERED_ORGANISATION_NAME"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "cp5wa",
+          "name": "System Generated",
+          "gateway_account_ids": [
+            "666"
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "ENTERED_ORGANISATION_NAME",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid update service name request with en and cy",
+      "providerState": "a service exists with external id cp5wa",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": [
+          {
+            "op": "replace",
+            "path": "service_name/en",
+            "value": "en-name"
+          },
+          {
+            "op": "replace",
+            "path": "service_name/cy",
+            "value": "cy-name"
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "cp5wa",
+          "name": "en-name",
+          "gateway_account_ids": [
+            "666"
+          ],
+          "service_name": {
+            "en": "en-name",
+            "cy": "cy-name"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.service_name.cy": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid update service name request with empty string for cy name",
+      "providerState": "a service exists with external id cp5wa",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": [
+          {
+            "op": "replace",
+            "path": "service_name/en",
+            "value": "en-name"
+          },
+          {
+            "op": "replace",
+            "path": "service_name/cy",
+            "value": ""
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "cp5wa",
+          "name": "en-name",
+          "gateway_account_ids": [
+            "666"
+          ],
+          "service_name": {
+            "en": "en-name"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "an invalid update service name request - service not found",
+      "providerState": "default",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": [
+          {
+            "op": "replace",
+            "path": "service_name/en",
+            "value": "en-name"
+          },
+          {
+            "op": "replace",
+            "path": "service_name/cy",
+            "value": "cy-name"
+          }
+        ]
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid update single service field request",
+      "providerState": "a service exists with external id cp5wa",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": [
+          {
+            "op": "replace",
+            "path": "merchant_details/name",
+            "value": "updated-name"
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "cp5wa",
+          "name": "System Generated",
+          "gateway_account_ids": [
+            "666"
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "NOT_STARTED",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "NOT_STARTED",
+          "agent_initiated_moto_enabled": false,
+          "merchant_details": {
+            "name": "updated-name"
+          }
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          },
+          "$.body.merchant_details.name": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid update service request to update all fields",
+      "providerState": "a service exists with external id cp5wa",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": [
+          {
+            "op": "replace",
+            "path": "merchant_details/name",
+            "value": "new-name"
+          },
+          {
+            "op": "replace",
+            "path": "merchant_details/address_line1",
+            "value": "new-line1"
+          },
+          {
+            "op": "replace",
+            "path": "merchant_details/address_line2",
+            "value": "new-line2"
+          },
+          {
+            "op": "replace",
+            "path": "merchant_details/address_city",
+            "value": "new-city"
+          },
+          {
+            "op": "replace",
+            "path": "merchant_details/address_country",
+            "value": "GB"
+          },
+          {
+            "op": "replace",
+            "path": "merchant_details/address_postcode",
+            "value": "E1 8QS"
+          },
+          {
+            "op": "replace",
+            "path": "merchant_details/telephone_number",
+            "value": "07700 900 982"
+          },
+          {
+            "op": "replace",
+            "path": "merchant_details/email",
+            "value": "foo@example.com"
+          },
+          {
+            "op": "replace",
+            "path": "current_go_live_stage",
+            "value": "ENTERED_ORGANISATION_NAME"
+          },
+          {
+            "op": "replace",
+            "path": "current_psp_test_account_stage",
+            "value": "REQUEST_SUBMITTED"
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 857,
+          "external_id": "cp5wa",
+          "name": "System Generated",
+          "gateway_account_ids": [
+            "666"
+          ],
+          "service_name": {
+            "en": "System Generated"
+          },
+          "redirect_to_service_immediately_on_terminal_state": false,
+          "collect_billing_address": false,
+          "current_go_live_stage": "ENTERED_ORGANISATION_NAME",
+          "experimental_features_enabled": true,
+          "current_psp_test_account_stage": "REQUEST_SUBMITTED",
+          "agent_initiated_moto_enabled": false,
+          "merchant_details": {
+            "name": "new-name",
+            "address_line1": "new-line1",
+            "address_line2": "new-line2",
+            "address_city": "new-city",
+            "address_postcode": "E1 8QS",
+            "address_country": "GB",
+            "email": "foo@example.com",
+            "telephone_number": "07700 900 982"
+          }
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.gateway_account_ids[0]": {
+            "match": "type"
+          },
+          "$.body.service_name.en": {
+            "match": "type"
+          },
+          "$.body.redirect_to_service_immediately_on_terminal_state": {
+            "match": "type"
+          },
+          "$.body.collect_billing_address": {
+            "match": "type"
+          },
+          "$.body.current_go_live_stage": {
+            "match": "type"
+          },
+          "$.body.experimental_features_enabled": {
+            "match": "type"
+          },
+          "$.body.current_psp_test_account_stage": {
+            "match": "type"
+          },
+          "$.body.agent_initiated_moto_enabled": {
+            "match": "type"
+          },
+          "$.body.merchant_details.name": {
+            "match": "type"
+          },
+          "$.body.merchant_details.address_line1": {
+            "match": "type"
+          },
+          "$.body.merchant_details.address_line2": {
+            "match": "type"
+          },
+          "$.body.merchant_details.address_city": {
+            "match": "type"
+          },
+          "$.body.merchant_details.address_postcode": {
+            "match": "type"
+          },
+          "$.body.merchant_details.address_country": {
+            "match": "type"
+          },
+          "$.body.merchant_details.email": {
+            "match": "type"
+          },
+          "$.body.merchant_details.telephone_number": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "an invalid update service patch request",
+      "providerState": "a service exists with external id cp5wa",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": [
+          {
+            "op": "replace",
+            "non-existent-path": "foo",
+            "value": "bar"
+          }
+        ]
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "description": "a valid assign service role request",
+      "providerState": "a user exists external id 7d19aff33f8948deb97ed16b2912dcd3 and a service exists with external id cp5wa",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/users/7d19aff33f8948deb97ed16b2912dcd3/services",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "service_external_id": "cp5wa",
+          "role_name": "view-and-refund"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "external_id": "7d19aff33f8948deb97ed16b2912dcd3",
+          "username": "some-user@example.com",
+          "email": "some-user@example.com",
+          "otp_key": "krb6fcianbdjkt01ecvi08jcln",
+          "telephone_number": "9127979",
+          "service_roles": [
+            {
+              "service": {
+                "id": 857,
+                "external_id": "cp5wa",
+                "name": "System Generated",
+                "gateway_account_ids": [
+                  "666"
+                ],
+                "service_name": {
+                  "en": "System Generated"
+                },
+                "redirect_to_service_immediately_on_terminal_state": false,
+                "collect_billing_address": false,
+                "current_go_live_stage": "NOT_STARTED",
+                "experimental_features_enabled": true,
+                "current_psp_test_account_stage": "NOT_STARTED",
+                "agent_initiated_moto_enabled": false
+              },
+              "role": {
+                "name": "view-and-refund",
+                "description": "Administrator",
+                "permissions": [
+                  {
+                    "name": "perm-1"
+                  }
+                ]
+              }
+            }
+          ],
+          "second_factor": "SMS",
+          "provisional_otp_key": null,
+          "provisional_otp_key_created_at": null,
+          "disabled": false,
+          "login_counter": 0,
+          "session_version": 0,
+          "_links": [
+            {
+              "rel": "self",
+              "method": "GET",
+              "href": "http://localhost:8080/v1/api/users/09283568e105442da3928d1fa99fb0eb"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.username": {
+            "match": "type"
+          },
+          "$.body.email": {
+            "match": "type"
+          },
+          "$.body.otp_key": {
+            "match": "type"
+          },
+          "$.body.telephone_number": {
+            "match": "type"
+          },
+          "$.body.service_roles": {
+            "min": 1
+          },
+          "$.body.service_roles[*].*": {
+            "match": "type"
+          },
+          "$.body.service_roles[*]": {
+            "match": "type"
+          },
+          "$.body.second_factor": {
+            "match": "type"
+          },
+          "$.body.disabled": {
+            "match": "type"
+          },
+          "$.body.login_counter": {
+            "match": "type"
+          },
+          "$.body.session_version": {
+            "match": "type"
+          },
+          "$.body._links": {
+            "min": 1
+          },
+          "$.body._links[*].*": {
+            "match": "type"
+          },
+          "$.body._links[*]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a service role request for non existent-user",
+      "providerState": "default",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/users/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/services",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "service_external_id": "cp5wa",
+          "role_name": "view-and-refund"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "an assign service role request for non existent service",
+      "providerState": "a user exists external id 7d19aff33f8948deb97ed16b2912dcd3 and a service exists with external id cp5wa",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/users/7d19aff33f8948deb97ed16b2912dcd3/services",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "service_external_id": "XXXXXXXXXXX-invalid-id",
+          "role_name": "admin"
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "description": "a valid user authenticate request",
+      "providerState": "a user exists",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/users/authenticate",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "username": "existing-user",
+          "password": "password"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "external_id": "7d19aff33f8948deb97ed16b2912dcd3",
+          "username": "some-user@example.com",
+          "email": "some-user@example.com",
+          "otp_key": "krb6fcianbdjkt01ecvi08jcln",
+          "telephone_number": "9127979",
+          "service_roles": [
+            {
+              "service": {
+                "id": 857,
+                "external_id": "cp5wa",
+                "name": "System Generated",
+                "gateway_account_ids": [
+                  "666"
+                ],
+                "service_name": {
+                  "en": "System Generated"
+                },
+                "redirect_to_service_immediately_on_terminal_state": false,
+                "collect_billing_address": false,
+                "current_go_live_stage": "NOT_STARTED",
+                "experimental_features_enabled": true,
+                "current_psp_test_account_stage": "NOT_STARTED",
+                "agent_initiated_moto_enabled": false
+              },
+              "role": {
+                "name": "admin",
+                "description": "Administrator",
+                "permissions": [
+                  {
+                    "name": "users-service:read",
+                    "description": "Viewusersinservice"
+                  },
+                  {
+                    "name": "users-service:create",
+                    "description": "Createuserinthisservice"
+                  },
+                  {
+                    "name": "tokens-active:read",
+                    "description": "Viewactivekeys"
+                  },
+                  {
+                    "name": "tokens-revoked:read",
+                    "description": "Viewrevokedkeys"
+                  },
+                  {
+                    "name": "tokens:create",
+                    "description": "Generatekey"
+                  },
+                  {
+                    "name": "tokens:update",
+                    "description": "Generatekey"
+                  },
+                  {
+                    "name": "tokens:delete",
+                    "description": "Revokekey"
+                  },
+                  {
+                    "name": "transactions:read",
+                    "description": "Viewtransactionslist"
+                  },
+                  {
+                    "name": "transactions-by-date:read",
+                    "description": "Searchtransactionsbydate"
+                  },
+                  {
+                    "name": "transactions-by-fields:read",
+                    "description": "Searchtransactionsbypaymentfields"
+                  },
+                  {
+                    "name": "transactions-download:read",
+                    "description": "Downloadtransactions"
+                  },
+                  {
+                    "name": "transactions-details:read",
+                    "description": "Viewtransactiondetails"
+                  },
+                  {
+                    "name": "transactions-events:read",
+                    "description": "Viewtransactionevents"
+                  },
+                  {
+                    "name": "refunds:create",
+                    "description": "Issuerefund"
+                  },
+                  {
+                    "name": "transactions-amount:read",
+                    "description": "Viewtransactionamounts"
+                  },
+                  {
+                    "name": "transactions-description:read",
+                    "description": "Viewtransactiondescription"
+                  },
+                  {
+                    "name": "transactions-email:read",
+                    "description": "Viewtransactionemail"
+                  },
+                  {
+                    "name": "transactions-card-type:read",
+                    "description": "Viewtransactioncardtype"
+                  },
+                  {
+                    "name": "gateway-credentials:read",
+                    "description": "Viewgatewayaccountcredentials"
+                  },
+                  {
+                    "name": "gateway-credentials:update",
+                    "description": "Editgatewayaccountcredentials"
+                  },
+                  {
+                    "name": "service-name:read",
+                    "description": "Viewservicename"
+                  },
+                  {
+                    "name": "service-name:update",
+                    "description": "Editservicename"
+                  },
+                  {
+                    "name": "payment-types:read",
+                    "description": "Viewpaymenttypes"
+                  },
+                  {
+                    "name": "payment-types:update",
+                    "description": "Editpaymenttypes"
+                  },
+                  {
+                    "name": "email-notification-template:read",
+                    "description": "Viewemailnotificationstemplate"
+                  },
+                  {
+                    "name": "email-notification-paragraph:update",
+                    "description": "Editemailnotificationsparagraph"
+                  },
+                  {
+                    "name": "email-notification-toggle:update",
+                    "description": "Turnemailnotificationson/off"
+                  },
+                  {
+                    "name": "tokens:read",
+                    "description": "View keys"
+                  },
+                  {
+                    "name": "toggle-3ds:read",
+                    "description": "View 3D Secure setting"
+                  },
+                  {
+                    "name": "toggle-3ds:update",
+                    "description": "Edit 3D Secure setting"
+                  },
+                  {
+                    "name": "users-service:delete",
+                    "description": "Remove user from a service"
+                  },
+                  {
+                    "name": "merchant-details:read",
+                    "description": "View Merchant Details setting"
+                  },
+                  {
+                    "name": "merchant-details:update",
+                    "description": "Edit Merchant Details setting"
+                  },
+                  {
+                    "name": "toggle-billing-address:read",
+                    "description": "View Billing Address setting"
+                  },
+                  {
+                    "name": "toggle-billing-address:update",
+                    "description": "Edit Billing Address setting"
+                  },
+                  {
+                    "name": "go-live-stage:update",
+                    "description": "Update Go Live stage"
+                  },
+                  {
+                    "name": "go-live-stage:read",
+                    "description": "View Go Live stage"
+                  },
+                  {
+                    "name": "stripe-account-details:update",
+                    "description": "Update any Stripe account onboarding details"
+                  },
+                  {
+                    "name": "stripe-bank-details:update",
+                    "description": "Update Stripe bank details"
+                  },
+                  {
+                    "name": "stripe-bank-details:read",
+                    "description": "View Stripe bank details"
+                  },
+                  {
+                    "name": "stripe-responsible-person:update",
+                    "description": "Update Stripe responsible person"
+                  },
+                  {
+                    "name": "stripe-responsible-person:read",
+                    "description": "View Stripe responsible person"
+                  },
+                  {
+                    "name": "stripe-vat-number-company-number:update",
+                    "description": "Update Stripe VAT number company number"
+                  },
+                  {
+                    "name": "stripe-vat-number-company-number:read",
+                    "description": "View Stripe VAT number company number"
+                  },
+                  {
+                    "name": "connected-gocardless-account:read",
+                    "description": "View connected go cardless account"
+                  },
+                  {
+                    "name": "connected-gocardless-account:update",
+                    "description": "Update connected go cardless account"
+                  },
+                  {
+                    "name": "payouts:read",
+                    "description": "View payouts"
+                  },
+                  {
+                    "name": "moto-mask-input:update",
+                    "description": "Update moto mask for card number and security code"
+                  },
+                  {
+                    "name": "moto-mask-input:read",
+                    "description": "View moto mask for card number and security code"
+                  },
+                  {
+                    "name": "psp-test-account-stage:update",
+                    "description": "Update PSP Test Account stage"
+                  }
+                ]
+              }
+            }
+          ],
+          "second_factor": "SMS",
+          "provisional_otp_key": "a-provisional-key",
+          "provisional_otp_key_created_at": null,
+          "disabled": false,
+          "login_counter": 0,
+          "session_version": 0,
+          "_links": [
+            {
+              "rel": "self",
+              "method": "GET",
+              "href": "http://localhost:8080/v1/api/users/09283568e105442da3928d1fa99fb0eb"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.username": {
+            "match": "type"
+          },
+          "$.body.email": {
+            "match": "type"
+          },
+          "$.body.otp_key": {
+            "match": "type"
+          },
+          "$.body.telephone_number": {
+            "match": "type"
+          },
+          "$.body.service_roles": {
+            "min": 1
+          },
+          "$.body.service_roles[*].*": {
+            "match": "type"
+          },
+          "$.body.service_roles[*]": {
+            "match": "type"
+          },
+          "$.body.second_factor": {
+            "match": "type"
+          },
+          "$.body.provisional_otp_key": {
+            "match": "type"
+          },
+          "$.body.disabled": {
+            "match": "type"
+          },
+          "$.body.login_counter": {
+            "match": "type"
+          },
+          "$.body.session_version": {
+            "match": "type"
+          },
+          "$.body._links": {
+            "min": 1
+          },
+          "$.body._links[*].*": {
+            "match": "type"
+          },
+          "$.body._links[*]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a user authenticate request with no matching user",
+      "providerState": "a user not exists with a given username password",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/users/authenticate",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "username": "nonexisting",
+          "password": "password"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "errors": [
+            "invalid username and/or password"
+          ]
+        },
+        "matchingRules": {
+          "$.body.errors[0]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a user authenticate request with malformed request",
+      "providerState": "a user exists with a given username password",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/users/authenticate",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "username": "",
+          "password": ""
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "errors": [
+            "Field [username] is required",
+            "Field [password] is required"
+          ]
+        },
+        "matchingRules": {
+          "$.body.errors[0]": {
+            "match": "type"
+          },
+          "$.body.errors[1]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid delete user from service request",
+      "providerState": "a user and user admin exists in service with the given ids before a delete operation",
+      "request": {
+        "method": "DELETE",
+        "path": "/v1/api/services/pact-delete-service-id/users/pact-delete-user-id",
+        "headers": {
+          "Accept": "application/json",
+          "GovUkPay-User-Context": "pact-delete-remover-id"
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid delete user from service request but remover is equal to user to be removed",
+      "providerState": "default",
+      "request": {
+        "method": "DELETE",
+        "path": "/v1/api/services/pact-delete-service-id/users/pact-delete-remover-id",
+        "headers": {
+          "Accept": "application/json",
+          "GovUkPay-User-Context": "pact-delete-remover-id"
+        }
+      },
+      "response": {
+        "status": 409,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "an invalid delete user from service request as user does not exist",
+      "providerState": "default",
+      "request": {
+        "method": "DELETE",
+        "path": "/v1/api/services/pact-delete-service-id/users/user-does-not-exist",
+        "headers": {
+          "Accept": "application/json",
+          "GovUkPay-User-Context": "pact-delete-remover-id"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a non existent user context",
+      "providerState": "a user exists but not the remover before a delete operation",
+      "request": {
+        "method": "DELETE",
+        "path": "/v1/api/services/pact-service-no-remover-test/users/pact-user-no-remover-test",
+        "headers": {
+          "Accept": "application/json",
+          "GovUkPay-User-Context": "user-does-not-exist"
+        }
+      },
+      "response": {
+        "status": 403,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid get user request",
+      "providerState": "a user exists with the given external id 7d19aff33f8948deb97ed16b2912dcd3",
+      "request": {
+        "method": "GET",
+        "path": "/v1/api/users/7d19aff33f8948deb97ed16b2912dcd3",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "external_id": "7d19aff33f8948deb97ed16b2912dcd3",
+          "username": "some-user@example.com",
+          "email": "some-user@example.com",
+          "otp_key": "krb6fcianbdjkt01ecvi08jcln",
+          "telephone_number": "9127979",
+          "service_roles": [
+            {
+              "service": {
+                "id": 857,
+                "external_id": "cp5wa",
+                "name": "System Generated",
+                "gateway_account_ids": [
+                  "666"
+                ],
+                "service_name": {
+                  "en": "System Generated"
+                },
+                "redirect_to_service_immediately_on_terminal_state": false,
+                "collect_billing_address": false,
+                "current_go_live_stage": "NOT_STARTED",
+                "experimental_features_enabled": true,
+                "current_psp_test_account_stage": "NOT_STARTED",
+                "agent_initiated_moto_enabled": false
+              },
+              "role": {
+                "name": "admin",
+                "description": "Administrator",
+                "permissions": [
+                  {
+                    "name": "users-service:read",
+                    "description": "Viewusersinservice"
+                  },
+                  {
+                    "name": "users-service:create",
+                    "description": "Createuserinthisservice"
+                  },
+                  {
+                    "name": "tokens-active:read",
+                    "description": "Viewactivekeys"
+                  },
+                  {
+                    "name": "tokens-revoked:read",
+                    "description": "Viewrevokedkeys"
+                  },
+                  {
+                    "name": "tokens:create",
+                    "description": "Generatekey"
+                  },
+                  {
+                    "name": "tokens:update",
+                    "description": "Generatekey"
+                  },
+                  {
+                    "name": "tokens:delete",
+                    "description": "Revokekey"
+                  },
+                  {
+                    "name": "transactions:read",
+                    "description": "Viewtransactionslist"
+                  },
+                  {
+                    "name": "transactions-by-date:read",
+                    "description": "Searchtransactionsbydate"
+                  },
+                  {
+                    "name": "transactions-by-fields:read",
+                    "description": "Searchtransactionsbypaymentfields"
+                  },
+                  {
+                    "name": "transactions-download:read",
+                    "description": "Downloadtransactions"
+                  },
+                  {
+                    "name": "transactions-details:read",
+                    "description": "Viewtransactiondetails"
+                  },
+                  {
+                    "name": "transactions-events:read",
+                    "description": "Viewtransactionevents"
+                  },
+                  {
+                    "name": "refunds:create",
+                    "description": "Issuerefund"
+                  },
+                  {
+                    "name": "transactions-amount:read",
+                    "description": "Viewtransactionamounts"
+                  },
+                  {
+                    "name": "transactions-description:read",
+                    "description": "Viewtransactiondescription"
+                  },
+                  {
+                    "name": "transactions-email:read",
+                    "description": "Viewtransactionemail"
+                  },
+                  {
+                    "name": "transactions-card-type:read",
+                    "description": "Viewtransactioncardtype"
+                  },
+                  {
+                    "name": "gateway-credentials:read",
+                    "description": "Viewgatewayaccountcredentials"
+                  },
+                  {
+                    "name": "gateway-credentials:update",
+                    "description": "Editgatewayaccountcredentials"
+                  },
+                  {
+                    "name": "service-name:read",
+                    "description": "Viewservicename"
+                  },
+                  {
+                    "name": "service-name:update",
+                    "description": "Editservicename"
+                  },
+                  {
+                    "name": "payment-types:read",
+                    "description": "Viewpaymenttypes"
+                  },
+                  {
+                    "name": "payment-types:update",
+                    "description": "Editpaymenttypes"
+                  },
+                  {
+                    "name": "email-notification-template:read",
+                    "description": "Viewemailnotificationstemplate"
+                  },
+                  {
+                    "name": "email-notification-paragraph:update",
+                    "description": "Editemailnotificationsparagraph"
+                  },
+                  {
+                    "name": "email-notification-toggle:update",
+                    "description": "Turnemailnotificationson/off"
+                  },
+                  {
+                    "name": "tokens:read",
+                    "description": "View keys"
+                  },
+                  {
+                    "name": "toggle-3ds:read",
+                    "description": "View 3D Secure setting"
+                  },
+                  {
+                    "name": "toggle-3ds:update",
+                    "description": "Edit 3D Secure setting"
+                  },
+                  {
+                    "name": "users-service:delete",
+                    "description": "Remove user from a service"
+                  },
+                  {
+                    "name": "merchant-details:read",
+                    "description": "View Merchant Details setting"
+                  },
+                  {
+                    "name": "merchant-details:update",
+                    "description": "Edit Merchant Details setting"
+                  },
+                  {
+                    "name": "toggle-billing-address:read",
+                    "description": "View Billing Address setting"
+                  },
+                  {
+                    "name": "toggle-billing-address:update",
+                    "description": "Edit Billing Address setting"
+                  },
+                  {
+                    "name": "go-live-stage:update",
+                    "description": "Update Go Live stage"
+                  },
+                  {
+                    "name": "go-live-stage:read",
+                    "description": "View Go Live stage"
+                  },
+                  {
+                    "name": "stripe-account-details:update",
+                    "description": "Update any Stripe account onboarding details"
+                  },
+                  {
+                    "name": "stripe-bank-details:update",
+                    "description": "Update Stripe bank details"
+                  },
+                  {
+                    "name": "stripe-bank-details:read",
+                    "description": "View Stripe bank details"
+                  },
+                  {
+                    "name": "stripe-responsible-person:update",
+                    "description": "Update Stripe responsible person"
+                  },
+                  {
+                    "name": "stripe-responsible-person:read",
+                    "description": "View Stripe responsible person"
+                  },
+                  {
+                    "name": "stripe-vat-number-company-number:update",
+                    "description": "Update Stripe VAT number company number"
+                  },
+                  {
+                    "name": "stripe-vat-number-company-number:read",
+                    "description": "View Stripe VAT number company number"
+                  },
+                  {
+                    "name": "connected-gocardless-account:read",
+                    "description": "View connected go cardless account"
+                  },
+                  {
+                    "name": "connected-gocardless-account:update",
+                    "description": "Update connected go cardless account"
+                  },
+                  {
+                    "name": "payouts:read",
+                    "description": "View payouts"
+                  },
+                  {
+                    "name": "moto-mask-input:update",
+                    "description": "Update moto mask for card number and security code"
+                  },
+                  {
+                    "name": "moto-mask-input:read",
+                    "description": "View moto mask for card number and security code"
+                  },
+                  {
+                    "name": "psp-test-account-stage:update",
+                    "description": "Update PSP Test Account stage"
+                  }
+                ]
+              }
+            }
+          ],
+          "second_factor": "SMS",
+          "provisional_otp_key": "a-provisional-key",
+          "provisional_otp_key_created_at": null,
+          "disabled": false,
+          "login_counter": 0,
+          "session_version": 0,
+          "_links": [
+            {
+              "rel": "self",
+              "method": "GET",
+              "href": "http://localhost:8080/v1/api/users/09283568e105442da3928d1fa99fb0eb"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.username": {
+            "match": "type"
+          },
+          "$.body.email": {
+            "match": "type"
+          },
+          "$.body.otp_key": {
+            "match": "type"
+          },
+          "$.body.telephone_number": {
+            "match": "type"
+          },
+          "$.body.service_roles": {
+            "min": 1
+          },
+          "$.body.service_roles[*].*": {
+            "match": "type"
+          },
+          "$.body.service_roles[*]": {
+            "match": "type"
+          },
+          "$.body.second_factor": {
+            "match": "type"
+          },
+          "$.body.provisional_otp_key": {
+            "match": "type"
+          },
+          "$.body.disabled": {
+            "match": "type"
+          },
+          "$.body.login_counter": {
+            "match": "type"
+          },
+          "$.body.session_version": {
+            "match": "type"
+          },
+          "$.body._links": {
+            "min": 1
+          },
+          "$.body._links[*].*": {
+            "match": "type"
+          },
+          "$.body._links[*]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid get user request of an non existing user",
+      "providerState": "no user exists with the given external id",
+      "request": {
+        "method": "GET",
+        "path": "/v1/api/users/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid increment session version update request",
+      "providerState": "a user exists",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/users/7d19aff33f8948deb97ed16b2912dcd3",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "op": "append",
+          "path": "sessionVersion",
+          "value": 1
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "description": "a valid increment session version request",
+      "providerState": "a user does not exist",
+      "request": {
+        "method": "PATCH",
+        "path": "/v1/api/users/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "op": "append",
+          "path": "sessionVersion",
+          "value": 1
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid update password request",
+      "providerState": "a valid forgotten password entry and a related user exists",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/reset-password",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "forgotten_password_code": "avalidforgottenpasswordtoken",
+          "new_password": "G0VUkPay2017Rocks"
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a valid update password request",
+      "providerState": "a forgotten password does not exists",
+      "request": {
+        "method": "POST",
+        "path": "/v1/api/reset-password",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "forgotten_password_code": "5ylaem",
+          "new_password": "G0VUkPay2017Rocks"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "description": "a valid update service role request",
+      "providerState": "a service exists with external id cp5wa with multiple admin users",
+      "request": {
+        "method": "PUT",
+        "path": "/v1/api/users/7d19aff33f8948deb97ed16b2912dcd3/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "role_name": "view-and-refund"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "external_id": "7d19aff33f8948deb97ed16b2912dcd3",
+          "username": "some-user@example.com",
+          "email": "some-user@example.com",
+          "otp_key": "krb6fcianbdjkt01ecvi08jcln",
+          "telephone_number": "9127979",
+          "service_roles": [
+            {
+              "service": {
+                "id": 857,
+                "external_id": "cp5wa",
+                "name": "System Generated",
+                "gateway_account_ids": [
+                  "666"
+                ],
+                "service_name": {
+                  "en": "System Generated"
+                },
+                "redirect_to_service_immediately_on_terminal_state": false,
+                "collect_billing_address": false,
+                "current_go_live_stage": "NOT_STARTED",
+                "experimental_features_enabled": true,
+                "current_psp_test_account_stage": "NOT_STARTED",
+                "agent_initiated_moto_enabled": false
+              },
+              "role": {
+                "name": "view-and-refund",
+                "description": "Administrator",
+                "permissions": [
+                  {
+                    "name": "users-service:read",
+                    "description": "Viewusersinservice"
+                  },
+                  {
+                    "name": "users-service:create",
+                    "description": "Createuserinthisservice"
+                  },
+                  {
+                    "name": "tokens-active:read",
+                    "description": "Viewactivekeys"
+                  },
+                  {
+                    "name": "tokens-revoked:read",
+                    "description": "Viewrevokedkeys"
+                  },
+                  {
+                    "name": "tokens:create",
+                    "description": "Generatekey"
+                  },
+                  {
+                    "name": "tokens:update",
+                    "description": "Generatekey"
+                  },
+                  {
+                    "name": "tokens:delete",
+                    "description": "Revokekey"
+                  },
+                  {
+                    "name": "transactions:read",
+                    "description": "Viewtransactionslist"
+                  },
+                  {
+                    "name": "transactions-by-date:read",
+                    "description": "Searchtransactionsbydate"
+                  },
+                  {
+                    "name": "transactions-by-fields:read",
+                    "description": "Searchtransactionsbypaymentfields"
+                  },
+                  {
+                    "name": "transactions-download:read",
+                    "description": "Downloadtransactions"
+                  },
+                  {
+                    "name": "transactions-details:read",
+                    "description": "Viewtransactiondetails"
+                  },
+                  {
+                    "name": "transactions-events:read",
+                    "description": "Viewtransactionevents"
+                  },
+                  {
+                    "name": "refunds:create",
+                    "description": "Issuerefund"
+                  },
+                  {
+                    "name": "transactions-amount:read",
+                    "description": "Viewtransactionamounts"
+                  },
+                  {
+                    "name": "transactions-description:read",
+                    "description": "Viewtransactiondescription"
+                  },
+                  {
+                    "name": "transactions-email:read",
+                    "description": "Viewtransactionemail"
+                  },
+                  {
+                    "name": "transactions-card-type:read",
+                    "description": "Viewtransactioncardtype"
+                  },
+                  {
+                    "name": "gateway-credentials:read",
+                    "description": "Viewgatewayaccountcredentials"
+                  },
+                  {
+                    "name": "gateway-credentials:update",
+                    "description": "Editgatewayaccountcredentials"
+                  },
+                  {
+                    "name": "service-name:read",
+                    "description": "Viewservicename"
+                  },
+                  {
+                    "name": "service-name:update",
+                    "description": "Editservicename"
+                  },
+                  {
+                    "name": "payment-types:read",
+                    "description": "Viewpaymenttypes"
+                  },
+                  {
+                    "name": "payment-types:update",
+                    "description": "Editpaymenttypes"
+                  },
+                  {
+                    "name": "email-notification-template:read",
+                    "description": "Viewemailnotificationstemplate"
+                  },
+                  {
+                    "name": "email-notification-paragraph:update",
+                    "description": "Editemailnotificationsparagraph"
+                  },
+                  {
+                    "name": "email-notification-toggle:update",
+                    "description": "Turnemailnotificationson/off"
+                  },
+                  {
+                    "name": "tokens:read",
+                    "description": "View keys"
+                  },
+                  {
+                    "name": "toggle-3ds:read",
+                    "description": "View 3D Secure setting"
+                  },
+                  {
+                    "name": "toggle-3ds:update",
+                    "description": "Edit 3D Secure setting"
+                  },
+                  {
+                    "name": "users-service:delete",
+                    "description": "Remove user from a service"
+                  },
+                  {
+                    "name": "merchant-details:read",
+                    "description": "View Merchant Details setting"
+                  },
+                  {
+                    "name": "merchant-details:update",
+                    "description": "Edit Merchant Details setting"
+                  },
+                  {
+                    "name": "toggle-billing-address:read",
+                    "description": "View Billing Address setting"
+                  },
+                  {
+                    "name": "toggle-billing-address:update",
+                    "description": "Edit Billing Address setting"
+                  },
+                  {
+                    "name": "go-live-stage:update",
+                    "description": "Update Go Live stage"
+                  },
+                  {
+                    "name": "go-live-stage:read",
+                    "description": "View Go Live stage"
+                  },
+                  {
+                    "name": "stripe-account-details:update",
+                    "description": "Update any Stripe account onboarding details"
+                  },
+                  {
+                    "name": "stripe-bank-details:update",
+                    "description": "Update Stripe bank details"
+                  },
+                  {
+                    "name": "stripe-bank-details:read",
+                    "description": "View Stripe bank details"
+                  },
+                  {
+                    "name": "stripe-responsible-person:update",
+                    "description": "Update Stripe responsible person"
+                  },
+                  {
+                    "name": "stripe-responsible-person:read",
+                    "description": "View Stripe responsible person"
+                  },
+                  {
+                    "name": "stripe-vat-number-company-number:update",
+                    "description": "Update Stripe VAT number company number"
+                  },
+                  {
+                    "name": "stripe-vat-number-company-number:read",
+                    "description": "View Stripe VAT number company number"
+                  },
+                  {
+                    "name": "connected-gocardless-account:read",
+                    "description": "View connected go cardless account"
+                  },
+                  {
+                    "name": "connected-gocardless-account:update",
+                    "description": "Update connected go cardless account"
+                  },
+                  {
+                    "name": "payouts:read",
+                    "description": "View payouts"
+                  },
+                  {
+                    "name": "moto-mask-input:update",
+                    "description": "Update moto mask for card number and security code"
+                  },
+                  {
+                    "name": "moto-mask-input:read",
+                    "description": "View moto mask for card number and security code"
+                  },
+                  {
+                    "name": "psp-test-account-stage:update",
+                    "description": "Update PSP Test Account stage"
+                  }
+                ]
+              }
+            }
+          ],
+          "second_factor": "SMS",
+          "provisional_otp_key": "a-provisional-key",
+          "provisional_otp_key_created_at": null,
+          "disabled": false,
+          "login_counter": 0,
+          "session_version": 0,
+          "_links": [
+            {
+              "rel": "self",
+              "method": "GET",
+              "href": "http://localhost:8080/v1/api/users/09283568e105442da3928d1fa99fb0eb"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.external_id": {
+            "match": "type"
+          },
+          "$.body.username": {
+            "match": "type"
+          },
+          "$.body.email": {
+            "match": "type"
+          },
+          "$.body.otp_key": {
+            "match": "type"
+          },
+          "$.body.telephone_number": {
+            "match": "type"
+          },
+          "$.body.service_roles": {
+            "min": 1
+          },
+          "$.body.service_roles[*].*": {
+            "match": "type"
+          },
+          "$.body.service_roles[*]": {
+            "match": "type"
+          },
+          "$.body.second_factor": {
+            "match": "type"
+          },
+          "$.body.provisional_otp_key": {
+            "match": "type"
+          },
+          "$.body.disabled": {
+            "match": "type"
+          },
+          "$.body.login_counter": {
+            "match": "type"
+          },
+          "$.body.session_version": {
+            "match": "type"
+          },
+          "$.body._links": {
+            "min": 1
+          },
+          "$.body._links[*].*": {
+            "match": "type"
+          },
+          "$.body._links[*]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "an update service role request for non-existent user",
+      "providerState": "default",
+      "request": {
+        "method": "PUT",
+        "path": "/v1/api/users/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "role_name": "view-and-refund"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "an update service role request for user that does not belong to service",
+      "providerState": "a user exists external id 7d19aff33f8948deb97ed16b2912dcd3 and a service exists with external id cp5wa",
+      "request": {
+        "method": "PUT",
+        "path": "/v1/api/users/7d19aff33f8948deb97ed16b2912dcd3/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "role_name": "admin"
+        }
+      },
+      "response": {
+        "status": 409,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "description": "an update service role request with minimum number of admins reached",
+      "providerState": "a user exists with external id 7d19aff33f8948deb97ed16b2912dcd3 with admin role for service with id cp5wa",
+      "request": {
+        "method": "PUT",
+        "path": "/v1/api/users/7d19aff33f8948deb97ed16b2912dcd3/services/cp5wa",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "role_name": "view-and-refund"
+        }
+      },
+      "response": {
+        "status": 412,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

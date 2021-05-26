@@ -1,0 +1,1479 @@
+{
+  "consumer": {
+    "name": "selfservice"
+  },
+  "provider": {
+    "name": "ledger"
+  },
+  "interactions": [
+    {
+      "description": "a valid created transaction details request",
+      "providerState": "a transaction with fee and net_amount exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction/ch_123abc456xyz",
+        "query": "account_id=123456&transaction_type=PAYMENT",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "amount": 100,
+          "state": {
+            "status": "started",
+            "finished": false
+          },
+          "description": "ref1",
+          "reference": "ref1888889",
+          "transaction_id": "ch_123abc456xyz",
+          "email": "test2@example.org",
+          "payment_provider": "sandbox",
+          "created_date": "2018-05-01T13:27:00.057Z",
+          "delayed_capture": false,
+          "transaction_type": "PAYMENT",
+          "moto": false,
+          "live": false,
+          "refund_summary": {
+            "status": "unavailable",
+            "user_external_id": null,
+            "amount_available": 100,
+            "amount_submitted": 0
+          },
+          "settlement_summary": {
+            "capture_submit_time": null,
+            "captured_date": null
+          },
+          "fee": 5,
+          "net_amount": 95
+        },
+        "matchingRules": {
+          "$.body.amount": {
+            "match": "type"
+          },
+          "$.body.state.status": {
+            "match": "type"
+          },
+          "$.body.state.finished": {
+            "match": "type"
+          },
+          "$.body.description": {
+            "match": "type"
+          },
+          "$.body.reference": {
+            "match": "type"
+          },
+          "$.body.transaction_id": {
+            "match": "type"
+          },
+          "$.body.email": {
+            "match": "type"
+          },
+          "$.body.payment_provider": {
+            "match": "type"
+          },
+          "$.body.created_date": {
+            "match": "type"
+          },
+          "$.body.delayed_capture": {
+            "match": "type"
+          },
+          "$.body.transaction_type": {
+            "match": "type"
+          },
+          "$.body.moto": {
+            "match": "type"
+          },
+          "$.body.live": {
+            "match": "type"
+          },
+          "$.body.refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.fee": {
+            "match": "type"
+          },
+          "$.body.net_amount": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid transaction with corporate surcharge details request",
+      "providerState": "a transaction with corporate surcharge exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction/ch_123abc456xyz",
+        "query": "account_id=123456&transaction_type=PAYMENT",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "amount": 1000,
+          "state": {
+            "status": "started",
+            "finished": false
+          },
+          "description": "ref1",
+          "reference": "ref188888",
+          "transaction_id": "ch_123abc456xyz",
+          "email": "test2@example.org",
+          "payment_provider": "sandbox",
+          "created_date": "2018-05-01T13:27:00.057Z",
+          "delayed_capture": false,
+          "transaction_type": "PAYMENT",
+          "moto": false,
+          "live": false,
+          "refund_summary": {
+            "status": "unavailable",
+            "user_external_id": null,
+            "amount_available": 1250,
+            "amount_submitted": 0
+          },
+          "settlement_summary": {
+            "capture_submit_time": "2018-05-01T13:27:00.057Z",
+            "captured_date": "2018-05-01T13:27:00.057Z"
+          },
+          "corporate_card_surcharge": 250,
+          "total_amount": 1250
+        },
+        "matchingRules": {
+          "$.body.amount": {
+            "match": "type"
+          },
+          "$.body.state.status": {
+            "match": "type"
+          },
+          "$.body.state.finished": {
+            "match": "type"
+          },
+          "$.body.description": {
+            "match": "type"
+          },
+          "$.body.reference": {
+            "match": "type"
+          },
+          "$.body.transaction_id": {
+            "match": "type"
+          },
+          "$.body.email": {
+            "match": "type"
+          },
+          "$.body.payment_provider": {
+            "match": "type"
+          },
+          "$.body.created_date": {
+            "match": "type"
+          },
+          "$.body.delayed_capture": {
+            "match": "type"
+          },
+          "$.body.transaction_type": {
+            "match": "type"
+          },
+          "$.body.moto": {
+            "match": "type"
+          },
+          "$.body.live": {
+            "match": "type"
+          },
+          "$.body.refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.settlement_summary.capture_submit_time": {
+            "match": "type"
+          },
+          "$.body.settlement_summary.captured_date": {
+            "match": "type"
+          },
+          "$.body.corporate_card_surcharge": {
+            "match": "type"
+          },
+          "$.body.total_amount": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid transaction with metadata details request",
+      "providerState": "a transaction with metadata exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction/ch_123abc456xyz",
+        "query": "account_id=123456&transaction_type=PAYMENT",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "amount": 1000,
+          "state": {
+            "status": "started",
+            "finished": false
+          },
+          "description": "ref1",
+          "reference": "ref188888",
+          "transaction_id": "ch_123abc456xyz",
+          "email": "test2@example.org",
+          "payment_provider": "sandbox",
+          "created_date": "2018-05-01T13:27:00.057Z",
+          "delayed_capture": false,
+          "transaction_type": "PAYMENT",
+          "moto": false,
+          "live": false,
+          "refund_summary": {
+            "status": "unavailable",
+            "user_external_id": null,
+            "amount_available": 1000,
+            "amount_submitted": 0
+          },
+          "settlement_summary": {
+            "capture_submit_time": null,
+            "captured_date": null
+          },
+          "metadata": {
+            "external_metadata": "metadata"
+          }
+        },
+        "matchingRules": {
+          "$.body.amount": {
+            "match": "type"
+          },
+          "$.body.state.status": {
+            "match": "type"
+          },
+          "$.body.state.finished": {
+            "match": "type"
+          },
+          "$.body.description": {
+            "match": "type"
+          },
+          "$.body.reference": {
+            "match": "type"
+          },
+          "$.body.transaction_id": {
+            "match": "type"
+          },
+          "$.body.email": {
+            "match": "type"
+          },
+          "$.body.payment_provider": {
+            "match": "type"
+          },
+          "$.body.created_date": {
+            "match": "type"
+          },
+          "$.body.delayed_capture": {
+            "match": "type"
+          },
+          "$.body.transaction_type": {
+            "match": "type"
+          },
+          "$.body.moto": {
+            "match": "type"
+          },
+          "$.body.live": {
+            "match": "type"
+          },
+          "$.body.refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.metadata.external_metadata": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid transaction events details request",
+      "providerState": "a transaction has CREATED and AUTHORISATION_REJECTED payment events",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction/ch_123abc456xyz/event",
+        "query": "gateway_account_id=123456",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "transaction_id": "ch_123abc456xyz",
+          "events": [
+            {
+              "amount": 21170,
+              "state": {
+                "status": "created",
+                "finished": false
+              },
+              "resource_type": "PAYMENT",
+              "event_type": "PAYMENT_CREATED",
+              "timestamp": "2019-08-06T10:34:43.487123Z",
+              "data": {
+              }
+            },
+            {
+              "amount": 21170,
+              "state": {
+                "status": "declined",
+                "finished": true,
+                "code": "P0010",
+                "message": "Payment method rejected"
+              },
+              "resource_type": "PAYMENT",
+              "event_type": "AUTHORISATION_REJECTED",
+              "timestamp": "2019-08-06T10:34:48.123456Z",
+              "data": {
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.transaction_id": {
+            "match": "type"
+          },
+          "$.body.events[0].amount": {
+            "match": "type"
+          },
+          "$.body.events[0].state.status": {
+            "match": "type"
+          },
+          "$.body.events[0].state.finished": {
+            "match": "type"
+          },
+          "$.body.events[0].resource_type": {
+            "match": "type"
+          },
+          "$.body.events[0].event_type": {
+            "match": "type"
+          },
+          "$.body.events[0].timestamp": {
+            "match": "type"
+          },
+          "$.body.events[1].amount": {
+            "match": "type"
+          },
+          "$.body.events[1].state.status": {
+            "match": "type"
+          },
+          "$.body.events[1].state.finished": {
+            "match": "type"
+          },
+          "$.body.events[1].state.code": {
+            "match": "type"
+          },
+          "$.body.events[1].state.message": {
+            "match": "type"
+          },
+          "$.body.events[1].resource_type": {
+            "match": "type"
+          },
+          "$.body.events[1].event_type": {
+            "match": "type"
+          },
+          "$.body.events[1].timestamp": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid get transaction summary request",
+      "providerState": "three payments and a refund all in success state exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/report/transactions-summary",
+        "query": "account_id=123456&from_date=2019-09-19T13%3A00%3A00.000Z&to_date=2019-09-22T00%3A00%3A00.000Z",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "payments": {
+            "count": 2,
+            "gross_amount": 3500
+          },
+          "refunds": {
+            "count": 1,
+            "gross_amount": 1000
+          },
+          "net_income": 2500
+        },
+        "matchingRules": {
+          "$.body.payments.count": {
+            "match": "type"
+          },
+          "$.body.payments.gross_amount": {
+            "match": "type"
+          },
+          "$.body.refunds.count": {
+            "match": "type"
+          },
+          "$.body.refunds.gross_amount": {
+            "match": "type"
+          },
+          "$.body.net_income": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid search payout details request",
+      "providerState": "two payouts exist for selfservice search",
+      "request": {
+        "method": "GET",
+        "path": "/v1/payout",
+        "query": "gateway_account_id=654321&state=paidout&page=1",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "results": [
+            {
+              "gateway_payout_id": "payout-id-2",
+              "gateway_account_id": "654321",
+              "amount": 2345,
+              "created_date": "2020-05-22T12:22:16.067Z",
+              "paid_out_date": "2019-01-29T11:00:00.000000Z",
+              "state": {
+                "status": "paidout",
+                "finished": true
+              }
+            },
+            {
+              "gateway_payout_id": "payout-id-1",
+              "gateway_account_id": "654321",
+              "amount": 1250,
+              "created_date": "2020-05-21T12:22:16.067Z",
+              "paid_out_date": "2019-01-29T11:00:00.000000Z",
+              "state": {
+                "status": "paidout",
+                "finished": true
+              }
+            }
+          ],
+          "total": 2,
+          "count": 2,
+          "page": 1
+        },
+        "matchingRules": {
+          "$.body.results[0].gateway_payout_id": {
+            "match": "type"
+          },
+          "$.body.results[0].gateway_account_id": {
+            "match": "type"
+          },
+          "$.body.results[0].amount": {
+            "match": "type"
+          },
+          "$.body.results[0].created_date": {
+            "match": "type"
+          },
+          "$.body.results[0].paid_out_date": {
+            "match": "type"
+          },
+          "$.body.results[0].state.status": {
+            "match": "type"
+          },
+          "$.body.results[0].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[1].gateway_payout_id": {
+            "match": "type"
+          },
+          "$.body.results[1].gateway_account_id": {
+            "match": "type"
+          },
+          "$.body.results[1].amount": {
+            "match": "type"
+          },
+          "$.body.results[1].created_date": {
+            "match": "type"
+          },
+          "$.body.results[1].paid_out_date": {
+            "match": "type"
+          },
+          "$.body.results[1].state.status": {
+            "match": "type"
+          },
+          "$.body.results[1].state.finished": {
+            "match": "type"
+          },
+          "$.body.total": {
+            "match": "type"
+          },
+          "$.body.count": {
+            "match": "type"
+          },
+          "$.body.page": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid search transaction details request",
+      "providerState": "two payments and a refund transactions exist for selfservice search",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction",
+        "query": "account_id=123456&page=1&display_size=100&limit_total=true&limit_total_size=5001",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "total": 3,
+          "count": 3,
+          "page": 1,
+          "results": [
+            {
+              "amount": 2000,
+              "state": {
+                "status": "success",
+                "finished": true
+              },
+              "description": "ref1",
+              "reference": "ref188888",
+              "transaction_id": "222222",
+              "email": "test2@example.org",
+              "payment_provider": "sandbox",
+              "created_date": "2018-09-22T10:14:15.067Z",
+              "delayed_capture": false,
+              "transaction_type": "PAYMENT",
+              "moto": false,
+              "live": false,
+              "card_details": {
+                "card_brand": "visa"
+              },
+              "refund_summary": {
+                "status": "available",
+                "user_external_id": null,
+                "amount_available": 1850,
+                "amount_submitted": 150
+              },
+              "settlement_summary": {
+                "capture_submit_time": null,
+                "captured_date": null
+              }
+            },
+            {
+              "amount": 1000,
+              "state": {
+                "status": "started",
+                "finished": false
+              },
+              "description": "ref1",
+              "reference": "ref188888",
+              "transaction_id": "111111",
+              "email": "test2@example.org",
+              "payment_provider": "sandbox",
+              "created_date": "2018-09-21T10:14:16.067Z",
+              "delayed_capture": false,
+              "transaction_type": "PAYMENT",
+              "moto": false,
+              "live": false,
+              "refund_summary": {
+                "status": "available",
+                "user_external_id": null,
+                "amount_available": 1000,
+                "amount_submitted": 0
+              },
+              "settlement_summary": {
+                "capture_submit_time": null,
+                "captured_date": null
+              }
+            },
+            {
+              "gateway_account_id": "1",
+              "amount": 150,
+              "state": {
+                "status": "started",
+                "finished": false
+              },
+              "created_date": "2018-09-26T10:14:16.067Z",
+              "transaction_type": "REFUND",
+              "transaction_id": "1b5kia0u28ll2ic4obv26r5e4h",
+              "parent_transaction_id": "222222"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.total": {
+            "match": "type"
+          },
+          "$.body.count": {
+            "match": "type"
+          },
+          "$.body.page": {
+            "match": "type"
+          },
+          "$.body.results[0].amount": {
+            "match": "type"
+          },
+          "$.body.results[0].state.status": {
+            "match": "type"
+          },
+          "$.body.results[0].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[0].description": {
+            "match": "type"
+          },
+          "$.body.results[0].reference": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[0].email": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_provider": {
+            "match": "type"
+          },
+          "$.body.results[0].created_date": {
+            "match": "type"
+          },
+          "$.body.results[0].delayed_capture": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[0].moto": {
+            "match": "type"
+          },
+          "$.body.results[0].live": {
+            "match": "type"
+          },
+          "$.body.results[0].card_details.card_brand": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.results[1].amount": {
+            "match": "type"
+          },
+          "$.body.results[1].state.status": {
+            "match": "type"
+          },
+          "$.body.results[1].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[1].description": {
+            "match": "type"
+          },
+          "$.body.results[1].reference": {
+            "match": "type"
+          },
+          "$.body.results[1].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[1].email": {
+            "match": "type"
+          },
+          "$.body.results[1].payment_provider": {
+            "match": "type"
+          },
+          "$.body.results[1].created_date": {
+            "match": "type"
+          },
+          "$.body.results[1].delayed_capture": {
+            "match": "type"
+          },
+          "$.body.results[1].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[1].moto": {
+            "match": "type"
+          },
+          "$.body.results[1].live": {
+            "match": "type"
+          },
+          "$.body.results[1].refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.results[1].refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.results[1].refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.results[2].gateway_account_id": {
+            "match": "type"
+          },
+          "$.body.results[2].amount": {
+            "match": "type"
+          },
+          "$.body.results[2].state.status": {
+            "match": "type"
+          },
+          "$.body.results[2].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[2].created_date": {
+            "match": "type"
+          },
+          "$.body.results[2].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[2].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[2].parent_transaction_id": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid search transaction with email and card_brands details request",
+      "providerState": "a payment with success state exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction",
+        "query": "account_id=123456&page=1&display_size=100&email=doe&card_brands=visa%2Cmastercard&limit_total=true&limit_total_size=5001",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "total": 1,
+          "count": 1,
+          "page": 1,
+          "results": [
+            {
+              "amount": 2000,
+              "state": {
+                "status": "success",
+                "finished": true
+              },
+              "description": "ref1",
+              "reference": "ref188888",
+              "transaction_id": "222222",
+              "email": "j.doe@example.org",
+              "payment_provider": "sandbox",
+              "created_date": "2018-09-22T10:14:15.067Z",
+              "delayed_capture": false,
+              "transaction_type": "PAYMENT",
+              "moto": false,
+              "live": false,
+              "card_details": {
+                "card_brand": "visa"
+              },
+              "refund_summary": {
+                "status": "available",
+                "user_external_id": null,
+                "amount_available": 1850,
+                "amount_submitted": 150
+              },
+              "settlement_summary": {
+                "capture_submit_time": "2018-09-22T10:15:15.067Z",
+                "captured_date": "2018-09-22"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.total": {
+            "match": "type"
+          },
+          "$.body.count": {
+            "match": "type"
+          },
+          "$.body.page": {
+            "match": "type"
+          },
+          "$.body.results[0].amount": {
+            "match": "type"
+          },
+          "$.body.results[0].state.status": {
+            "match": "type"
+          },
+          "$.body.results[0].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[0].description": {
+            "match": "type"
+          },
+          "$.body.results[0].reference": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[0].email": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_provider": {
+            "match": "type"
+          },
+          "$.body.results[0].created_date": {
+            "match": "type"
+          },
+          "$.body.results[0].delayed_capture": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[0].moto": {
+            "match": "type"
+          },
+          "$.body.results[0].live": {
+            "match": "type"
+          },
+          "$.body.results[0].card_details.card_brand": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.results[0].settlement_summary.capture_submit_time": {
+            "match": "type"
+          },
+          "$.body.results[0].settlement_summary.captured_date": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid search with payment_states and partial reference transaction details request",
+      "providerState": "a payment with success state exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction",
+        "query": "account_id=123456&reference=pay&from_date=2019-05-01T00%3A00%3A00.000Z&to_date=2019-10-05T00%3A00%3A01.000Z&page=1&display_size=100&payment_states=created%2Cstarted%2Csubmitted%2Csuccess&limit_total=true&limit_total_size=5001",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "total": 1,
+          "count": 1,
+          "page": 1,
+          "results": [
+            {
+              "amount": 2000,
+              "state": {
+                "status": "success",
+                "finished": true
+              },
+              "description": "ref1",
+              "reference": "payment1",
+              "transaction_id": "222222",
+              "email": "j.doe@example.org",
+              "payment_provider": "sandbox",
+              "created_date": "2018-09-22T10:14:15.067Z",
+              "delayed_capture": false,
+              "transaction_type": "PAYMENT",
+              "moto": false,
+              "live": false,
+              "card_details": {
+                "card_brand": "visa"
+              },
+              "refund_summary": {
+                "status": "available",
+                "user_external_id": null,
+                "amount_available": 1850,
+                "amount_submitted": 150
+              },
+              "settlement_summary": {
+                "capture_submit_time": "2018-09-22T10:15:15.067Z",
+                "captured_date": "2018-09-22"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.total": {
+            "match": "type"
+          },
+          "$.body.count": {
+            "match": "type"
+          },
+          "$.body.page": {
+            "match": "type"
+          },
+          "$.body.results[0].amount": {
+            "match": "type"
+          },
+          "$.body.results[0].state.status": {
+            "match": "type"
+          },
+          "$.body.results[0].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[0].description": {
+            "match": "type"
+          },
+          "$.body.results[0].reference": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[0].email": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_provider": {
+            "match": "type"
+          },
+          "$.body.results[0].created_date": {
+            "match": "type"
+          },
+          "$.body.results[0].delayed_capture": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[0].moto": {
+            "match": "type"
+          },
+          "$.body.results[0].live": {
+            "match": "type"
+          },
+          "$.body.results[0].card_details.card_brand": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.results[0].settlement_summary.capture_submit_time": {
+            "match": "type"
+          },
+          "$.body.results[0].settlement_summary.captured_date": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid transaction with from date filter request",
+      "providerState": "a payment with all fields and a corresponding refund exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction",
+        "query": "account_id=123456&page=1&display_size=100&from_date=2019-09-21T00%3A00%3A00.000Z&limit_total=true&limit_total_size=5001",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "total": 2,
+          "count": 2,
+          "page": 1,
+          "results": [
+            {
+              "gateway_account_id": "1",
+              "amount": 1850,
+              "state": {
+                "status": "started",
+                "finished": false
+              },
+              "created_date": "2019-09-22T10:14:16.067Z",
+              "transaction_type": "REFUND",
+              "transaction_id": "1b5kia0u28ll2ic4obv26r5e4h",
+              "parent_transaction_id": "222222",
+              "payment_details": {
+                "description": "ref1",
+                "reference": "ref188888",
+                "email": "test@example.org",
+                "card_details": {
+                  "last_digits_card_number": "0002",
+                  "cardholder_name": "Test User",
+                  "expiry_date": "08/23",
+                  "card_brand": "Visa"
+                },
+                "transaction_type": "PAYMENT"
+              }
+            },
+            {
+              "amount": 2000,
+              "state": {
+                "status": "success",
+                "finished": true
+              },
+              "description": "ref1",
+              "reference": "ref188888",
+              "transaction_id": "222222",
+              "email": "j.doe@example.org",
+              "payment_provider": "sandbox",
+              "created_date": "2019-09-21T13:14:16.067Z",
+              "delayed_capture": false,
+              "transaction_type": "PAYMENT",
+              "moto": false,
+              "live": false,
+              "card_details": {
+                "card_brand": "visa"
+              },
+              "refund_summary": {
+                "status": "available",
+                "user_external_id": null,
+                "amount_available": 2000,
+                "amount_submitted": 0
+              },
+              "settlement_summary": {
+                "capture_submit_time": "2019-09-21T13:14:16.067Z",
+                "captured_date": "2019-09-21"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.total": {
+            "match": "type"
+          },
+          "$.body.count": {
+            "match": "type"
+          },
+          "$.body.page": {
+            "match": "type"
+          },
+          "$.body.results[0].gateway_account_id": {
+            "match": "type"
+          },
+          "$.body.results[0].amount": {
+            "match": "type"
+          },
+          "$.body.results[0].state.status": {
+            "match": "type"
+          },
+          "$.body.results[0].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[0].created_date": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[0].parent_transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_details.description": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_details.reference": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_details.email": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_details.card_details.last_digits_card_number": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_details.card_details.cardholder_name": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_details.card_details.expiry_date": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_details.card_details.card_brand": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_details.transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[1].amount": {
+            "match": "type"
+          },
+          "$.body.results[1].state.status": {
+            "match": "type"
+          },
+          "$.body.results[1].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[1].description": {
+            "match": "type"
+          },
+          "$.body.results[1].reference": {
+            "match": "type"
+          },
+          "$.body.results[1].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[1].email": {
+            "match": "type"
+          },
+          "$.body.results[1].payment_provider": {
+            "match": "type"
+          },
+          "$.body.results[1].created_date": {
+            "match": "type"
+          },
+          "$.body.results[1].delayed_capture": {
+            "match": "type"
+          },
+          "$.body.results[1].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[1].moto": {
+            "match": "type"
+          },
+          "$.body.results[1].live": {
+            "match": "type"
+          },
+          "$.body.results[1].card_details.card_brand": {
+            "match": "type"
+          },
+          "$.body.results[1].refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.results[1].refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.results[1].refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.results[1].settlement_summary.capture_submit_time": {
+            "match": "type"
+          },
+          "$.body.results[1].settlement_summary.captured_date": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid transaction with to date filter request",
+      "providerState": "a payment with all fields and a corresponding refund exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction",
+        "query": "account_id=123456&page=1&display_size=100&to_date=2019-09-21T14%3A00%3A01.000Z&limit_total=true&limit_total_size=5001",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "total": 1,
+          "count": 1,
+          "page": 1,
+          "results": [
+            {
+              "amount": 2000,
+              "state": {
+                "status": "success",
+                "finished": true
+              },
+              "description": "ref1",
+              "reference": "ref188888",
+              "transaction_id": "222222",
+              "email": "j.doe@example.org",
+              "payment_provider": "sandbox",
+              "created_date": "2019-09-21T13:14:16.067Z",
+              "delayed_capture": false,
+              "transaction_type": "PAYMENT",
+              "moto": false,
+              "live": false,
+              "card_details": {
+                "card_brand": "visa"
+              },
+              "refund_summary": {
+                "status": "available",
+                "user_external_id": null,
+                "amount_available": 2000,
+                "amount_submitted": 0
+              },
+              "settlement_summary": {
+                "capture_submit_time": "2019-09-21T13:14:16.067Z",
+                "captured_date": "2019-09-21"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.total": {
+            "match": "type"
+          },
+          "$.body.count": {
+            "match": "type"
+          },
+          "$.body.page": {
+            "match": "type"
+          },
+          "$.body.results[0].amount": {
+            "match": "type"
+          },
+          "$.body.results[0].state.status": {
+            "match": "type"
+          },
+          "$.body.results[0].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[0].description": {
+            "match": "type"
+          },
+          "$.body.results[0].reference": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[0].email": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_provider": {
+            "match": "type"
+          },
+          "$.body.results[0].created_date": {
+            "match": "type"
+          },
+          "$.body.results[0].delayed_capture": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[0].moto": {
+            "match": "type"
+          },
+          "$.body.results[0].live": {
+            "match": "type"
+          },
+          "$.body.results[0].card_details.card_brand": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.results[0].settlement_summary.capture_submit_time": {
+            "match": "type"
+          },
+          "$.body.results[0].settlement_summary.captured_date": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a valid search transaction by metadata request",
+      "providerState": "a transaction with metadata exists",
+      "request": {
+        "method": "GET",
+        "path": "/v1/transaction",
+        "query": "account_id=123456&metadata_value=metadata&page=1&display_size=100&limit_total=true&limit_total_size=5001",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "total": 1,
+          "count": 1,
+          "page": 1,
+          "results": [
+            {
+              "amount": 1000,
+              "state": {
+                "status": "started",
+                "finished": false
+              },
+              "description": "ref1",
+              "reference": "ref188888",
+              "transaction_id": "ch_123abc456xyz",
+              "email": "test2@example.org",
+              "payment_provider": "sandbox",
+              "created_date": "2018-05-01T13:27:00.057Z",
+              "delayed_capture": false,
+              "transaction_type": "PAYMENT",
+              "moto": false,
+              "live": false,
+              "refund_summary": {
+                "status": "unavailable",
+                "user_external_id": null,
+                "amount_available": 20000,
+                "amount_submitted": 0
+              },
+              "settlement_summary": {
+                "capture_submit_time": null,
+                "captured_date": null
+              },
+              "metadata": {
+                "external_metadata": "metadata"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.total": {
+            "match": "type"
+          },
+          "$.body.count": {
+            "match": "type"
+          },
+          "$.body.page": {
+            "match": "type"
+          },
+          "$.body.results[0].amount": {
+            "match": "type"
+          },
+          "$.body.results[0].state.status": {
+            "match": "type"
+          },
+          "$.body.results[0].state.finished": {
+            "match": "type"
+          },
+          "$.body.results[0].description": {
+            "match": "type"
+          },
+          "$.body.results[0].reference": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_id": {
+            "match": "type"
+          },
+          "$.body.results[0].email": {
+            "match": "type"
+          },
+          "$.body.results[0].payment_provider": {
+            "match": "type"
+          },
+          "$.body.results[0].created_date": {
+            "match": "type"
+          },
+          "$.body.results[0].delayed_capture": {
+            "match": "type"
+          },
+          "$.body.results[0].transaction_type": {
+            "match": "type"
+          },
+          "$.body.results[0].moto": {
+            "match": "type"
+          },
+          "$.body.results[0].live": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.status": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_available": {
+            "match": "type"
+          },
+          "$.body.results[0].refund_summary.amount_submitted": {
+            "match": "type"
+          },
+          "$.body.results[0].metadata.external_metadata": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
